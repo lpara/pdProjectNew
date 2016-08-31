@@ -6,24 +6,21 @@
 package com.br.pdproject.dao;
 
 import com.br.pdproject.dominio.Aluguel;
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
 
-public class AluguelDAO extends GenericDAO<Aluguel>{
-
-	public AluguelDAO() {
-		super(Aluguel.class);
-	}
+public class AluguelDAO extends GenericDAO{
 
 	public Integer aluguelExistente(int inventario){
 		Session session = null;
 		try{
-			session = getSessionFactory().openSession();
+                        EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			String consulta = "select count(a.id) from Aluguel a "
 					+ "where a.inventario.id = :idInventario";
 			
-			Query q = session.createQuery(consulta);
+			Query q = em.createQuery(consulta);
 			q.setParameter("idInventario", inventario);
 			Long resultado = (Long)q.getSingleResult();
 			Integer al = resultado.intValue();
@@ -48,12 +45,12 @@ public class AluguelDAO extends GenericDAO<Aluguel>{
 	public Integer itemEstaAlugado (int inventario){
 		Session session = null;
 		try{
-			session = getSessionFactory().openSession();
+			EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			String novaConsulta = "select count(a.id) from Aluguel a "
 					+ "where a.inventario.id = :inventario "
 					+ "and a.dataDevolucao is null";
 			
-			Query newQ = session.createQuery(novaConsulta);
+			Query newQ = em.createQuery(novaConsulta);
 			newQ.setParameter("inventario", inventario);
 			Long result = (Long) newQ.getSingleResult();
 			Integer al = result.intValue();

@@ -29,13 +29,13 @@ public class AtorDAO extends GenericDAO<Ator> {
 	public List<Ator> buscarAtoresEFilmes(){
 		Session session = null;
 		try{
-			session = getSessionFactory().openSession();
+                    session = getSessionFactory().openSession();
 			     
-	        String consulta = "select ator from Ator ator order by ator.primeiroNome";
-	        Query q = session.createQuery(consulta, Ator.class);
-	        @SuppressWarnings("unchecked")
-	        List<Ator> result = (List<Ator>) q.getResultList();
-	        return result;
+                    String consulta = "select ator from Ator ator order by ator.primeiroNome";
+                    Query q = session.createQuery(consulta, Ator.class);
+                    @SuppressWarnings("unchecked")
+                    List<Ator> result = (List<Ator>) q.getResultList();
+                    return result;
 		}catch(Exception e){
 			session.close();
 			e.printStackTrace();
