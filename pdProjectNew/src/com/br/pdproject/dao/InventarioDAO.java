@@ -16,17 +16,15 @@ import com.br.pdproject.dominio.Aluguel;
 import com.br.pdproject.dominio.Ator;
 import com.br.pdproject.dominio.Inventario;
 import com.br.pdproject.dominio.Loja;
+import javax.persistence.EntityManager;
 /**
 * 
 * @author lucas.carvalho | luan.alves
 *
 * @param <T> Tipo do dominio associado ao DAO
 */
-public class InventarioDAO extends GenericDAO<Inventario>{
+public class InventarioDAO extends GenericDAO{
 
-	public InventarioDAO() {
-		super(Inventario.class);
-	}
 
 	public boolean isInventarioEmEstoque(int iventario){
 		Integer aluguel = 0;
@@ -45,11 +43,12 @@ public class InventarioDAO extends GenericDAO<Inventario>{
 		Session session = null;
 		List<Loja> result = new ArrayList<Loja>();
 		try{
-			session = getSessionFactory().openSession();
+		
+                EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			     
 	        String consulta = "select i from Inventario i "
 	        		+ "where i.filme.id = :filme";
-	        Query q = session.createQuery(consulta);
+	        Query q = em.createQuery(consulta);
 	        q.setParameter("filme", idFilme);
 	        @SuppressWarnings("unchecked")
 	        List<Inventario> inventarios = (List<Inventario>) q.getResultList();
@@ -73,26 +72,26 @@ public class InventarioDAO extends GenericDAO<Inventario>{
 	}
 	
 	public List<Inventario> inventariosPorFilmeELoja(int idFilme, int idLoja){
-		Session session = null;
+		EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 		try{
-			session = getSessionFactory().openSession();
+			
 			String consulta = "select i from Inventario i "
 					+ "where i.filme.id = :filme "
 					+ " and i.loja.id = :loja";
 			
-			Query q = session.createQuery(consulta);
+			Query q = em.createQuery(consulta);
 			q.setParameter("filme", idFilme);
 			q.setParameter("loja", idLoja);
 			List<Inventario> inventarios = q.getResultList();
 			
 			return inventarios;
 		}catch(Exception e){
-			session.close();
+			em.close();
 			e.printStackTrace();
 		}finally{
-			if(session != null && session.isOpen()){
-				session.close();
-				session = null;
+			if(em != null && em.isOpen()){
+				em.close();
+
 			}
 		}
 		return null;
@@ -102,11 +101,11 @@ public class InventarioDAO extends GenericDAO<Inventario>{
 		List<Inventario> invent = new ArrayList<Inventario>();
 		Session session = null;
 		try{
-			session = getSessionFactory().openSession();
+			EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			String consulta = "select i from Inventario i "
 					+ "where i.filme.id = :filme";
 			
-			Query q = session.createQuery(consulta);
+			Query q = em.createQuery(consulta);
 			q.setParameter("filme", filme);
 			invent = q.getResultList();
 			

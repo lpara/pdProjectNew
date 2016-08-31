@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import com.br.pdproject.dominio.Loja;
+import javax.persistence.EntityManager;
 
 /**
  * 
@@ -19,11 +20,9 @@ import com.br.pdproject.dominio.Loja;
  *
  * @param <T> Tipo do dominio associado ao DAO
  */
-public class LojaDAO extends GenericDAO<Loja> {
+public class LojaDAO extends GenericDAO {
 
-	public LojaDAO() {
-		super(Loja.class);
-	}
+
 
 	/*
 	 * Consulta 03 (1,5 Pontos) – Criar uma consulta HQL ou Critéria que fornece
@@ -31,26 +30,24 @@ public class LojaDAO extends GenericDAO<Loja> {
 	 * Deve exibir informações de 16 Categorias.
 	 */
 	public List<Object[]> buscarVendasLoja(Integer id) {
-		Session session = null;
+		EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 		try {
-			session = getSessionFactory().openSession();
+			
 			String consulta = "select  loja.id, c.nome, SUM(p.quantia) as total    " + " from Pagamento p "
 					+ " join p.aluguel a " + " join a.inventario i " + " join i.filme f " + " join f.categoria c "
 					+ " join a.equipe e " + " join e.loja loja " + " group by loja.id, c.nome "
 					+ " having loja.id = " + id + " order by c.nome ";
 
-			Query q = session.createQuery(consulta);
+			Query q = em.createQuery(consulta);
 			@SuppressWarnings("unchecked")
 			List<Object[]> lista = q.getResultList();
 
 			return lista;
 		} catch (Exception e) {
-			session.getTransaction().rollback();
 			e.printStackTrace();
 		}finally{
-			if(session != null && session.isOpen()){
-				session.close();
-				session = null;
+			if(em != null && em.isOpen()){
+				em.close();
 			}
 		}
 
