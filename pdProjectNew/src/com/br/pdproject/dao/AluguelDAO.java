@@ -5,12 +5,17 @@
  */
 package com.br.pdproject.dao;
 
-import com.br.pdproject.dominio.Aluguel;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
 
+/**
+* Classe DAO de Alugueis
+* 
+* @author lucas.carvalho | luan.alves
+*
+*/
 public class AluguelDAO extends GenericDAO{
 
 	public Integer aluguelExistente(int inventario){

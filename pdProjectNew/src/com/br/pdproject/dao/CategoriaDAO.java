@@ -12,26 +12,23 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import com.br.pdproject.dominio.Categoria;
+import javax.persistence.EntityManager;
 
 /**
+* Classe DAO das Categorias
 * 
 * @author lucas.carvalho | luan.alves
 *
-* @param <T> Tipo do dominio associado ao DAO
 */
-public class CategoriaDAO extends GenericDAO<Categoria> {
-
-	public CategoriaDAO() {
-		super(Categoria.class);
-	}
+public class CategoriaDAO extends GenericDAO {
 
 	public List<Categoria> buscarCategorias(){
 		Session session = null;
 		try{
-			session = getSessionFactory().openSession();
+			EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			String consulta = "select c from Categoria c order by c.nome";
 			
-			Query q = session.createQuery(consulta);
+			Query q = em.createQuery(consulta);
 			List<Categoria> result = q.getResultList();
 			
 			return result;

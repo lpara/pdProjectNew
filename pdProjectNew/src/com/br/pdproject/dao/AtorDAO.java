@@ -12,27 +12,25 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import com.br.pdproject.dominio.Ator;
+import javax.persistence.EntityManager;
 
 /**
+* Classe DAO de Atores
 * 
 * @author lucas.carvalho | luan.alves
 *
-* @param <T> Tipo do dominio associado ao DAO
 */
-public class AtorDAO extends GenericDAO<Ator> {
+public class AtorDAO extends GenericDAO {
 	
-	
-    public AtorDAO() {
-		super(Ator.class);
-	}
+
 
 	public List<Ator> buscarAtoresEFilmes(){
 		Session session = null;
 		try{
-                    session = getSessionFactory().openSession();
+                    EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			     
                     String consulta = "select ator from Ator ator order by ator.primeiroNome";
-                    Query q = session.createQuery(consulta, Ator.class);
+                    Query q = em.createQuery(consulta, Ator.class);
                     @SuppressWarnings("unchecked")
                     List<Ator> result = (List<Ator>) q.getResultList();
                     return result;

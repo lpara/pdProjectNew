@@ -10,23 +10,20 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import com.br.pdproject.dominio.Equipe;
+import javax.persistence.EntityManager;
 
 /**
+ * Classe DAO da Equipe
  * 
  * @author lucas.carvalho | luan.carlos
  *
- * @param <T> Tipo do dominio associado ao DAO
  */
-public class EquipeDAO extends GenericDAO<Equipe> {
-
-	public EquipeDAO() {
-		super(Equipe.class);
-	}
+public class EquipeDAO extends GenericDAO {
 
 	public Equipe buscarEmpregadoMike(){
 		Session session = null;
 		try{
-	        session = getSessionFactory().openSession();
+	        EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 	        Equipe result = new Equipe();
 	        
 	        String consulta = "select e from Equipe e "
@@ -35,7 +32,7 @@ public class EquipeDAO extends GenericDAO<Equipe> {
 	                + "inner join e.endereco.cidade.pais "
 	                + "where e.primeiroNome like :nome and e.ultimoNome like :ultimoNome";
 	        
-	        Query q = session.createQuery(consulta);
+	        Query q = em.createQuery(consulta);
 	        q.setParameter("nome", "Mike"); 
 	        q.setParameter("ultimoNome", "Hillyer");
 	        result = (Equipe) q.getSingleResult();
