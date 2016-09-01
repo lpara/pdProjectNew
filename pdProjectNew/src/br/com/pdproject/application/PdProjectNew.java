@@ -5,6 +5,8 @@
  */
 package br.com.pdproject.application;
 
+import com.br.pdproject.dao.EquipeDAO;
+import com.br.pdproject.dominio.Equipe;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +33,24 @@ public class PdProjectNew extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        problema2();
         launch(args);
+    }
+    
+     static void problema2() {
+        EquipeDAO  equipeDao = new EquipeDAO();          
+        Equipe eq = equipeDao.buscarEmpregadoMike();
+
+        if(eq != null){
+                System.out.println("--------------------------------------------------------");
+                System.out.println("Nome: '"+eq.getPrimeiroNome()+" "+eq.getUltimoNome()+"'");
+                System.out.println("Endereço: '" + eq.getEndereco().getEnderecoPrincipal()+"'");
+                System.out.println("Telefone: '" + eq.getEndereco().getTelefone()+"'");
+                System.out.println("Cidade: '" + eq.getEndereco().getCidade().getNome_cidade()+"'");
+                System.out.println("País: '" + eq.getEndereco().getCidade().getPais().getNome()+"'");
+                System.out.println("--------------------------------------------------------");
+        }
+
     }
     
 }
