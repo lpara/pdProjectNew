@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.pdproject.application.ClienteFXMLController">
+   <children>
+      <Button fx:id="listarClientes" layoutX="234.0" layoutY="265.0" mnemonicParsing="false" text="Listar Clientes" />
+      <TableView fx:id="tblCliente" layoutX="46.0" layoutY="21.0" prefHeight="200.0" prefWidth="513.0">
+        <columns>
+          <TableColumn fx:id="colNomeCliente" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="colEmailCliente" prefWidth="75.0" text="email" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
