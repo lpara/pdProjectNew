@@ -28,12 +28,12 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
     
     @FXML
-    private Button btnInserirFilme;
+    private Button btnCRUDFilme;
     
     @FXML
     private void redirecionarInserirFilmes(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLPaginaInsercaoFilme.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLFilmeCRUD.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Inserção de Filmes");
             stage.setScene(new Scene(root));
