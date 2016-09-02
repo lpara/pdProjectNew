@@ -23,7 +23,6 @@ import javax.persistence.EntityManager;
 public class CategoriaDAO extends GenericDAO {
 
 	public List<Categoria> buscarCategorias(){
-		Session session = null;
 		try{
 			EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 			String consulta = "select c from Categoria c order by c.nome";
@@ -33,14 +32,19 @@ public class CategoriaDAO extends GenericDAO {
 			
 			return result;
 		}catch(Exception e){
-			session.close();
 			e.printStackTrace();
-		}finally {
-			if(session != null && session.isOpen()){
-				session.close();
-				session = null;
-			}
-		}
+                }
 		return null;
 	}
+        
+        public Categoria buscarPorNome(String nome){
+            EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+            String consulta = "select c from Categoria c where c.nome = :nomeCategoria";
+            Query q = em.createQuery(consulta);
+            q.setParameter("nomeCategoria", nome);
+            
+            Categoria result = (Categoria)q.getSingleResult();
+            
+            return result;
+        }
 }

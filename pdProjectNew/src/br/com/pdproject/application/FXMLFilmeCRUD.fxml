@@ -17,7 +17,7 @@
          </font>
       </Text>
       <Pane layoutX="6.0" layoutY="90.0" opacity="0.3" prefHeight="280.0" prefWidth="587.0" style="-fx-background-color: grey;" />
-      <Button fx:id="btnInserirFilme" layoutX="17.0" layoutY="100.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Inserir" />
+      <Button fx:id="btnInserirFilme" layoutX="17.0" layoutY="100.0" mnemonicParsing="false" onAction="#acaoInserir" prefHeight="33.0" prefWidth="566.0" text="Inserir" />
       <Button fx:id="btnRemoverFilme" layoutX="17.0" layoutY="150.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Remover" />
       <Button fx:id="btnListarFilme" layoutX="17.0" layoutY="200.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Listar Acervo" />
       <Button fx:id="btnAtualizarFilme" layoutX="17.0" layoutY="255.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Atualizar Informação" />

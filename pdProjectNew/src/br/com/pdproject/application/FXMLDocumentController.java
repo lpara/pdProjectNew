@@ -35,7 +35,7 @@ public class FXMLDocumentController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLFilmeCRUD.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Inserção de Filmes");
+            stage.setTitle("Ações de Filmes");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
