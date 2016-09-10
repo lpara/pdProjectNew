@@ -118,7 +118,10 @@ public class ClienteAtualizaFXMLController extends AbstractController implements
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
+       cliente = (Cliente) stagePrincipal.getUserData();
+       
+       stagePrincipal.setUserData(null);
        
        txtNomeCliente.setText(cliente.getNome());
        txtSobrenomeCliente.setText(cliente.getSobrenome());
@@ -128,18 +131,23 @@ public class ClienteAtualizaFXMLController extends AbstractController implements
 
     public void atualizar() {
         
+        
+        cliente.setNome(txtNomeCliente.getText());
+        cliente.setSobrenome(txtSobrenomeCliente.getText());
+        cliente.setEmail(txtEmailCliente.getText());
         ClienteDAO cDAO = new ClienteDAO();
-        cDAO.Atualizar(cliente);
+        
+        try {
+            cDAO.Atualizar(cliente);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
        
         listar();
         
+        carregarPagina("ClienteFXML.fxml");
+        
     }
 
-    public void carregaCliente(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ClienteFXML.fxml"));
-        ClienteFXMLController control = (ClienteFXMLController)loader.getController();
-        
-        cliente = control.getCliente();
-    }
-    
 }

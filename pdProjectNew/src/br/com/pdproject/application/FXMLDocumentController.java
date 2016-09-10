@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  *
  * @author Lucas
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController extends AbstractController implements Initializable {
     
     @FXML
     private Label label;
@@ -39,6 +39,15 @@ public class FXMLDocumentController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void redirecionarCliente(ActionEvent event) {
+        try {
+            carregarPagina("ClienteFXML.fxml");
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

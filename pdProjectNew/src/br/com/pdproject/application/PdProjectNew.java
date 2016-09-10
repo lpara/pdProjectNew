@@ -18,22 +18,30 @@ import javafx.stage.Stage;
  * @author Lucas
  */
 public class PdProjectNew extends Application {
+
+    
+    public static Scene scenePrincipal;
+    
+    public static Stage stagePrincipal;
     
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        Scene scene = new Scene(root);
+        scenePrincipal = new Scene(root);
         
-        stage.setScene(scene);
-        stage.show();
+        stagePrincipal = stage;
+        
+        stagePrincipal.setScene(scenePrincipal);
+        
+        stagePrincipal.show();
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        problema2();
+//        problema2();
         launch(args);
     }
     
@@ -52,5 +60,21 @@ public class PdProjectNew extends Application {
         }
 
     }
-    
+
+    public static Scene getScenePrincipal() {
+        return scenePrincipal;
+    }
+
+    public static void setScenePrincipal(Scene scenePrincipal) {
+        PdProjectNew.scenePrincipal = scenePrincipal;
+    }
+
+    public static Stage getStagePrincipal() {
+        return stagePrincipal;
+    }
+
+    public static void setStagePrincipal(Stage stagePrincipal) {
+        PdProjectNew.stagePrincipal = stagePrincipal;
+    }
+
 }

@@ -40,6 +40,7 @@ public class ClienteDAO extends GenericDAO {
         Endereco end = new Endereco();
         end.setId(1);
         c.setEndereco(end);
+        c.setAtivo(true);
         
         EntityManager em = GenericDAO.getEntityManager().createEntityManager();
         em.getTransaction().begin();
@@ -51,7 +52,21 @@ public class ClienteDAO extends GenericDAO {
     public List<Cliente> Listar(){
 
        EntityManager em = GenericDAO.getEntityManager().createEntityManager();
-       List<Cliente> clientes =  em.createQuery("from Cliente order by nome").getResultList();
+       List<Cliente> clientes =  em.createQuery("from Cliente where ativo = true order by nome").getResultList();
+       return clientes;
+       
+    }
+    
+    public List<Cliente> Filtrar(String filtro){
+
+       EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+       
+       String consulta = "from Cliente where ativo = true " + 
+               "and (upper(nome) like '%" + filtro.toUpperCase() + "%' " +
+                     "or upper(sobrenome) like '%" + filtro.toUpperCase() + "%' " +
+                     "or upper(email) like '%" + filtro.toUpperCase() + "%') " +
+               " order by nome ";
+       List<Cliente> clientes =  em.createQuery(consulta).getResultList();
        return clientes;
        
     }
@@ -60,7 +75,7 @@ public class ClienteDAO extends GenericDAO {
 
         EntityManager em = GenericDAO.getEntityManager().createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("delete from Cliente where id = " + cliente.getId()).executeUpdate();
+        em.createQuery("UPDATE Cliente SET ativo = false where id = " + cliente.getId()).executeUpdate();
         em.getTransaction().commit();
 
        
