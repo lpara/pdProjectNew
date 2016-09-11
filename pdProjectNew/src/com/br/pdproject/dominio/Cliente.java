@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,7 @@ public class Cliente {
 	
 	private String email;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="address_id")
 	private Endereco endereco;
 	
@@ -48,7 +49,7 @@ public class Cliente {
 	@Column(name="create_date")
 	private Timestamp dataCadastro;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="store_id")
 	private Loja loja;
 
@@ -95,7 +96,7 @@ public class Cliente {
 	public boolean isAtivo() {
 		return ativo;
 	}
-
+        
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}

@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
  *
  * @author LUAN
  */
-public class ClienteFXMLController extends AbstractController implements Initializable {
+public class FuncionarioFXMLController extends AbstractController implements Initializable {
 
     @FXML
     private Button btnInserirCliente;

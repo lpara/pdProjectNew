@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,10 @@ public class PdProjectNew extends Application {
         scenePrincipal = new Scene(root);
         
         stagePrincipal = stage;
+        
+        Image icone = new Image("http://www.sjnk-am.com/common/img/icon_sizeL.png");
+        
+        stagePrincipal.getIcons().add(icone); 
         
         stagePrincipal.setScene(scenePrincipal);
         

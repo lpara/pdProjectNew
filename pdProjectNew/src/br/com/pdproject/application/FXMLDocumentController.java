@@ -43,7 +43,18 @@ public class FXMLDocumentController extends AbstractController implements Initia
     @FXML
     private void redirecionarCliente(ActionEvent event) {
         try {
+            stagePrincipal.setTitle("Cliente");
             carregarPagina("ClienteFXML.fxml");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void redirecionarFuncionario(ActionEvent event) {
+        try {
+            stagePrincipal.setTitle("Funcionário");
+            carregarPagina("FuncionarioFXML.fxml");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

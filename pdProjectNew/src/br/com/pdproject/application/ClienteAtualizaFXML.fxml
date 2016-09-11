@@ -32,8 +32,8 @@
       <TextField fx:id="txtNomeCliente" layoutX="139.0" layoutY="108.0" prefHeight="25.0" prefWidth="360.0" />
       <TextField fx:id="txtSobrenomeCliente" layoutX="139.0" layoutY="142.0" prefHeight="25.0" prefWidth="360.0" />
       <TextField fx:id="txtEmailCliente" layoutX="139.0" layoutY="175.0" prefHeight="25.0" prefWidth="360.0" />
-      <Button fx:id="btnPersisteCliente" layoutX="387.0" layoutY="228.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="25.0" prefWidth="96.0" text="Atualizar" />
+      <Button fx:id="btnAtualizarCliente" layoutX="387.0" layoutY="228.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="25.0" prefWidth="96.0" text="Atualizar" />
       <Button fx:id="btnMenuCliente" layoutX="267.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToMenuCliente" prefHeight="25.0" prefWidth="96.0" text="Menu Clientes" />
-      <Button fx:id="btnMenuPrincipal" layoutX="146.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToMenuCliente" prefHeight="25.0" prefWidth="96.0" text="Menu Principal" />
+      <Button fx:id="btnMenuPrincipal" layoutX="146.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToMenuPrincipal" prefHeight="25.0" prefWidth="96.0" text="Menu Principal" />
    </children>
 </AnchorPane>
