@@ -41,13 +41,7 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
     private Button btnRemoverFilme;
     
     @FXML
-    private Button btnListarFilme;
-    
-    @FXML
     private Button btnAtualizarFilme;
-    
-    @FXML
-    private Button btnListarPorCategoriaFilme;
     
     @FXML
     private Button btnFiltrar;
@@ -111,6 +105,11 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
     
     public void acaoInserir(ActionEvent event){
         carregarPagina("FXMLInserirFilme.fxml");
+    }
+    
+     public void acaoAtualizar(ActionEvent event){
+        stagePrincipal.setUserData(tblFilme.getSelectionModel().getSelectedItem());
+        carregarPagina("FXMLAtualizarFilme.fxml");
     }
     
     

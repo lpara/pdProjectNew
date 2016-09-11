@@ -102,4 +102,20 @@ public class FilmeDAO extends GenericDAO {
         }
     }
     
+    public void atualizarFilme(Filme filme){
+
+        EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+        em.getTransaction().begin();
+        
+        Query q = em.createQuery("UPDATE Filme filme SET filme.titulo = '" + filme.getTitulo() +  "' , filme.descricao = '" + filme.getDescricao() +  
+                "' , filme.anoLancamento = " + filme.getAnoLancamento() +  ", filme.categoria.id = " + filme.getCategoria().getId() + " where id = ? ");
+        
+        q.setParameter(1, filme.getId());
+        
+        q.executeUpdate();
+
+        em.getTransaction().commit();
+    
+    }
+    
 }

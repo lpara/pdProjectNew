@@ -19,8 +19,7 @@
       <Pane layoutX="7.0" layoutY="367.0" opacity="0.3" prefHeight="251.0" prefWidth="587.0" style="-fx-background-color: grey;" />
       <Button fx:id="btnInserirFilme" layoutX="18.0" layoutY="388.0" mnemonicParsing="false" onAction="#acaoInserir" prefHeight="33.0" prefWidth="566.0" text="Inserir" />
       <Button fx:id="btnRemoverFilme" layoutX="18.0" layoutY="448.0" mnemonicParsing="false" onAction="#remover" prefHeight="33.0" prefWidth="566.0" text="Remover" />
-      <Button fx:id="btnAtualizarFilme" layoutX="18.0" layoutY="503.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Atualizar Informação" />
-      <Button fx:id="btnListarPorCategoriaFilme" layoutX="18.0" layoutY="555.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Filmes por Categoria" />
+      <Button fx:id="btnAtualizarFilme" layoutX="18.0" layoutY="503.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="33.0" prefWidth="566.0" text="Atualizar Informação" />
       <Pane layoutX="211.0" layoutY="4.0" opacity="0.24" prefHeight="57.0" prefWidth="177.0" style="-fx-background-color: grey;" />
       <TableView fx:id="tblFilme" layoutX="38.0" layoutY="94.0" prefHeight="200.0" prefWidth="517.0">
         <columns>
