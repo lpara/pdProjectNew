@@ -32,13 +32,10 @@ public class FXMLDocumentController extends AbstractController implements Initia
     
     @FXML
     private void redirecionarInserirFilmes(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("FXMLFilmeCRUD.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Ações de Filmes");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException ex) {
+         try {
+             stagePrincipal.setTitle("Menu Filme");
+            carregarPagina("FXMLFilmeMenu.fxml");
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

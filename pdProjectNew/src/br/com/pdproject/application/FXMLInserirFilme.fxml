@@ -19,8 +19,8 @@
       <Text layoutX="14.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título:" />
       <Text layoutX="14.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" />
       <TextArea fx:id="taDescricaoFilme" layoutX="14.0" layoutY="131.0" prefHeight="121.0" prefWidth="389.0" />
-      <ComboBox fx:id="cbIdiomaFilme" layoutX="11.0" layoutY="284.0" prefHeight="25.0" prefWidth="108.0" />
-      <Text layoutX="10.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Idioma:" />
+      <ComboBox fx:id="cbAnoFilme" layoutX="11.0" layoutY="284.0" prefHeight="25.0" prefWidth="108.0" />
+      <Text layoutX="10.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano:" />
       <Text layoutX="12.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" />
       <ComboBox fx:id="cbCategoriaFilme" layoutX="10.0" layoutY="340.0" prefWidth="150.0" />
       <Text fx:id="tfAlerta" fill="#e40a0a" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Todos os campos são obrigatórios, preenche-los antes de cadastrar o filme." visible="false">

@@ -6,6 +6,7 @@
 package com.br.pdproject.dominio;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,8 +28,7 @@ import javax.persistence.Table;
 public class Filme {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="filme_seq")
-	@SequenceGenerator(name="filme_seq", sequenceName="film_film_id_seq")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="film_id")
 	private int id;
 	
@@ -65,6 +65,10 @@ public class Filme {
 	
 	@OneToMany(mappedBy="filmes")
 	private List<Ator> atores;
+        
+        @Column(name="active")
+        private boolean emUso;
+
 	
 	public int getId() {
 		return id;
@@ -153,5 +157,13 @@ public class Filme {
 	public void setAtores(List<Ator> atores) {
 		this.atores = atores;
 	}
+        
+        public boolean isEmUso() {
+            return emUso;
+        }
+
+        public void setEmUso(boolean emUso) {
+            this.emUso = emUso;
+        }
 
 }

@@ -13,6 +13,9 @@ import com.br.pdproject.dominio.Filme;
 import com.br.pdproject.dominio.Idioma;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.Year;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -42,7 +45,7 @@ public class FXMLInserirFilmeController extends AbstractController implements In
     private TextArea taDescricaoFilme;
     
     @FXML
-    private ComboBox<String> cbIdiomaFilme;
+    private ComboBox<Integer> cbAnoFilme;
     
     @FXML
     private ComboBox<String> cbCategoriaFilme;
@@ -61,18 +64,16 @@ public class FXMLInserirFilmeController extends AbstractController implements In
         CategoriaDAO catDao = new CategoriaDAO();
         IdiomaDAO idiomaDao = new IdiomaDAO();
         Filme filme = new Filme();
-        if(isTextoNull(tfTituloFilme.getText()) || isTextoNull(taDescricaoFilme.getText()) || cbCategoriaFilme.getItems() == null || cbIdiomaFilme.getItems() == null){
+        if(isTextoNull(tfTituloFilme.getText()) || isTextoNull(taDescricaoFilme.getText()) || cbCategoriaFilme.getItems() == null || cbAnoFilme.getItems() == null){
             tfAlerta.setVisible(true);
         }else{
             tfAlerta.setVisible(false);
             filme.setTitulo(tfTituloFilme.getText());
             filme.setDescricao(taDescricaoFilme.getText());
+            filme.setAnoLancamento(cbAnoFilme.getValue());
             Categoria cat = new Categoria();
             cat = catDao.buscarPorNome(cbCategoriaFilme.getValue());
-            Idioma idioma = new Idioma();
-            idioma = idiomaDao.buscarPorNome(cbIdiomaFilme.getValue());
             filme.setCategoria(cat);
-            filme.setIdioma(idioma);
             filmDao.inserirFilme(filme);
             avancarTelaSucesso();
         }
@@ -88,12 +89,13 @@ public class FXMLInserirFilmeController extends AbstractController implements In
         }
     }
     
-    private void carregarComboIdioma(){
-        IdiomaDAO idiomaDao = new IdiomaDAO();
-        List<Idioma> idiomas = idiomaDao.listarIdiomas();
-        
-        for(Idioma idioma : idiomas){
-            cbIdiomaFilme.getItems().add(idioma.getNome());
+    private void carregarComboAno(){
+        SimpleDateFormat ano = new SimpleDateFormat("yyyy"); 
+        Date data = new Date();
+        String anoAtualStr=ano.format(data);
+        int anoAtual = Integer.parseInt(anoAtualStr);
+        for(Integer i = 1800; i <= anoAtual; i++){
+            cbAnoFilme.getItems().add(i);
         }
     }
     
@@ -103,7 +105,7 @@ public class FXMLInserirFilmeController extends AbstractController implements In
     
     
     public void voltarPagina() {
-        carregarPagina("FXMLFilmeCRUD.fxml");
+        carregarPagina("FXMLFilmeMenu.fxml");
     }
     
     /**
@@ -112,7 +114,7 @@ public class FXMLInserirFilmeController extends AbstractController implements In
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         carregarComboCategoria();
-        carregarComboIdioma();
+        carregarComboAno();
     }
 
     protected boolean isTextoNull(String texto){

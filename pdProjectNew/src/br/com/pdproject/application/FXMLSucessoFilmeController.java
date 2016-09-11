@@ -29,7 +29,7 @@ public class FXMLSucessoFilmeController extends AbstractController implements In
     }
     
     public void carregarMenuFilme(){
-        carregarPagina("FXMLFilmeCRUD.fxml");
+        carregarPagina("FXMLFilmeMenu.fxml");
     }
     
     /**

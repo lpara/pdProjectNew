@@ -7,6 +7,7 @@ package com.br.pdproject.dao;
 
 import com.br.pdproject.dominio.Ator;
 import com.br.pdproject.dominio.Filme;
+import com.br.pdproject.dominio.Idioma;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -33,16 +34,43 @@ public class FilmeDAO extends GenericDAO {
         return filme;
     }
     
+    public List<Filme> listarFilmes(){
+        EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+        List<Filme> filmes = new ArrayList<Filme>();
+        try{
+            String consulta = "select distinct filme from Filme filme where emUso = true order by filme.titulo";
+            Query q = em.createQuery(consulta);
+            filmes = q.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return filmes;
+    }
+    
+    public List<Filme> Filtrar(String filtro){
+
+       EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+       
+       String consulta = "from Filme where emUso = true and (upper(titulo) like '%" + filtro.toUpperCase() + "%' "+ 
+                     "or upper(descricao) like '%" + filtro.toUpperCase() + "%' ) " +
+               " order by titulo ";
+       List<Filme> filmes =  em.createQuery(consulta).getResultList();
+       return filmes;
+       
+    }
+    
     public void inserirFilme(Filme filme){
         EntityManager em = GenericDAO.getEntityManager().createEntityManager();
         try{    
             em.getTransaction().begin();
             //Preenchimento dos campos não definidos pelo usuário do sistema.
-            filme.setAnoLancamento(1990);
             filme.setDuracaoAluguel(2);
             filme.setTaxaAluguel(4.0);
             filme.setDuracao(120);
             filme.setCustoReposicao(10.00);
+            Idioma idioma = new Idioma();
+            idioma.setId(1);
+            filme.setIdioma(idioma);
             Ator ator1 = new Ator();
             Ator ator2 = new Ator();
             List<Ator> atores = new ArrayList<Ator>();
@@ -51,6 +79,7 @@ public class FilmeDAO extends GenericDAO {
             atores.add(ator1);
             atores.add(ator2);
             filme.setAtores(atores);
+            filme.setEmUso(true);
             
             em.persist(filme);
             em.getTransaction().commit();
@@ -60,12 +89,12 @@ public class FilmeDAO extends GenericDAO {
         }
     }
     
-    public void removerFilme(int idFilme){
+    public void removerFilme(Filme filme){
         EntityManager em = GenericDAO.getEntityManager().createEntityManager();
-        Filme filme = buscarFilme(idFilme);
         try{    
+            String remocao = "update Filme filme set filme.emUso = false where filme.id = "+filme.getId();
             em.getTransaction().begin();
-            em.remove(filme);
+            em.createQuery(remocao).executeUpdate();
             em.getTransaction().commit();
         }catch(Exception e){
             em.getTransaction().rollback();

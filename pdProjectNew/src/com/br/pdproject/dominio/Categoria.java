@@ -30,6 +30,9 @@ public class Categoria {
 	
 	@Column(name="name")
 	private String nome;
+        
+        @Column(name="active")
+        private boolean emUso;
 	
 	public int getId() {
 		return id;
@@ -46,6 +49,14 @@ public class Categoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+        
+        public boolean isEmUso() {
+            return emUso;
+        }
+
+        public void setEmUso(boolean emUso) {
+            this.emUso = emUso;
+        }
 	
 }
 
