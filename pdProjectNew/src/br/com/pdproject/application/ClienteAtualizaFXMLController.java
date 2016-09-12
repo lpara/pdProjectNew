@@ -106,6 +106,8 @@ public class ClienteAtualizaFXMLController extends AbstractController implements
             e.printStackTrace();
         }
 
+        atualizadoSucesso();
+        
         stagePrincipal.setTitle("Cliente");
         carregarPagina("ClienteFXML.fxml", stagePrincipal);
 

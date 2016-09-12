@@ -106,6 +106,8 @@ public class FuncionarioAtualizaFXMLController extends AbstractController implem
             e.printStackTrace();
         }
 
+        atualizadoSucesso();
+        
         stagePrincipal.setTitle("Funcionario");
         carregarPagina("FuncionarioFXML.fxml", stagePrincipal);
 
