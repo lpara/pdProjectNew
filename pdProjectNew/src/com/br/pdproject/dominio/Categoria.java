@@ -23,8 +23,7 @@ import javax.persistence.Transient;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="categoria_seq")
-	@SequenceGenerator(name="categoria_seq", sequenceName="category_category_id_seq")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="category_id")
 	private int id;
 	

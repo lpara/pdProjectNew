@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pdproject.application.FXMLAtualizarCategoriaController">
+   <children>
+      <Text layoutX="183.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualizar Categoria">
+         <font>
+            <Font name="Kristen ITC" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+      <TextField fx:id="tfNomeAttCategoria" layoutX="14.0" layoutY="64.0" />
+      <Pane layoutX="209.0" layoutY="304.0" opacity="0.29" prefHeight="64.0" prefWidth="217.0" style="-fx-background-color: grey;" />
+      <Button fx:id="btnAtualizarCategoria" layoutX="234.0" layoutY="323.0" mnemonicParsing="false" onAction="#atualizar" text="Atualizar" />
+      <Button fx:id="btnAVoltar" layoutX="339.0" layoutY="323.0" mnemonicParsing="false" onAction="#voltarMenuCategoria" text="Voltar" />
+   </children>
+</AnchorPane>

@@ -47,4 +47,56 @@ public class CategoriaDAO extends GenericDAO {
             
             return result;
         }
+        
+        public List<Categoria> Filtrar(String filtro){
+
+            EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+
+            String consulta = "from Categoria where emUso = true and (upper(nome) like '%" + filtro.toUpperCase() + "%' ) "+ 
+                    " order by titulo ";
+            List<Categoria> categorias =  em.createQuery(consulta).getResultList();
+            return categorias;
+       
+        }
+        
+        public void inserirCategoria(Categoria categoria){
+            EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+            try{
+                em.getTransaction().begin();
+                em.persist(categoria);
+                em.getTransaction().commit();
+            }catch(Exception e){
+                em.getTransaction().rollback();
+                e.printStackTrace();
+                
+            }
+        }
+        
+        public void removerCategoria(Categoria categoria){
+            EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+            try{    
+                String remocao = "update Categoria categoria set categoria.emUso = false where categoria.id = "+categoria.getId();
+                em.getTransaction().begin();
+                em.createQuery(remocao).executeUpdate();
+                em.getTransaction().commit();
+            }catch(Exception e){
+                em.getTransaction().rollback();
+                e.printStackTrace();
+            }
+        }
+        
+        public void atualizarCategoria(Categoria categoria){
+
+            EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+            em.getTransaction().begin();
+
+            Query q = em.createQuery("UPDATE Categoria categoria SET categoria.nome = '" + categoria.getNome() +" where id = ? ");
+
+            q.setParameter(1, categoria.getId());
+
+            q.executeUpdate();
+
+            em.getTransaction().commit();
+    
+        }
 }

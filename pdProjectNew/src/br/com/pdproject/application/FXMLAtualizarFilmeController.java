@@ -98,6 +98,10 @@ public class FXMLAtualizarFilmeController extends AbstractController implements 
         
     }
     
+    public void voltarMenuFilme(){
+        carregarPagina("FXMLFilmeMenu.fxml");
+    }
+    
     private void carregarComboCategoria(){
         CategoriaDAO catDAO = new CategoriaDAO();
         List<Categoria> categorias = catDAO.buscarCategorias();

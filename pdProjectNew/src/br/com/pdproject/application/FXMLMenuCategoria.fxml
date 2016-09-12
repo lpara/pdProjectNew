@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pdproject.application.FXMLMenuCategoriaController">
+   <children>
+      <Pane layoutX="7.0" layoutY="305.0" opacity="0.23" prefHeight="156.0" prefWidth="586.0" style="-fx-background-color: grey;" />
+      <Button fx:id="btnInserirCatoria" layoutX="21.0" layoutY="322.0" mnemonicParsing="false" onAction="#acaoInserir" prefHeight="25.0" prefWidth="561.0" text="Inserir" />
+      <Text layoutX="237.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias">
+         <font>
+            <Font name="Kristen ITC" size="24.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblCategoria" layoutX="104.0" layoutY="61.0" prefHeight="168.0" prefWidth="392.0">
+        <columns>
+          <TableColumn fx:id="colIdCategoria" prefWidth="82.0" text="ID" />
+          <TableColumn fx:id="colNomeCategoria" prefWidth="309.0" text="Nome" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAtualizarCategoria" layoutX="20.0" layoutY="368.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="25.0" prefWidth="561.0" text="Atualizar Informação" />
+      <Button fx:id="btnRemoverCategoria" layoutX="19.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="561.0" text="Remover" />
+      <Text layoutX="35.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrar: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtfiltro" layoutX="89.0" layoutY="242.0" prefHeight="25.0" prefWidth="353.0" />
+      <Button fx:id="btnFiltrar" layoutX="448.0" layoutY="242.0" mnemonicParsing="false" onAction="#filtrarCategoria" text="Buscar" />
+   </children>
+</AnchorPane>
