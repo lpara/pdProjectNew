@@ -39,6 +39,9 @@ public class FXMLMenuCategoriaController extends AbstractController implements I
     private Button btnFiltrar;
     
     @FXML
+    private Button btnVoltarMenuInicial;
+    
+    @FXML
     private TableColumn<Categoria, Integer> colIdCategoria;
     
     @FXML
@@ -100,5 +103,10 @@ public class FXMLMenuCategoriaController extends AbstractController implements I
             stagePrincipal.setUserData(tblCategoria.getSelectionModel().getSelectedItem());
             carregarPagina("FXMLAtualizarCategoria.fxml");
         }
+    }
+    
+    public void voltarMenuInicial(){
+        stagePrincipal.setTitle("Menu Principal");
+        carregarPagina("FXMLDocument.fxml");
     }
 }

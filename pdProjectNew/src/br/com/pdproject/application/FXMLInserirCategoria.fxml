@@ -19,6 +19,6 @@
       <Pane layoutX="212.0" layoutY="321.0" opacity="0.38" prefHeight="65.0" prefWidth="173.0" style="-fx-background-color: grey;" />
       <Button fx:id="btnCadastrar" layoutX="236.0" layoutY="340.0" mnemonicParsing="false" onAction="#acaoInserir" text="Inserir" />
       <Button fx:id="btnVoltar" layoutX="308.0" layoutY="340.0" mnemonicParsing="false" onAction="#voltarPagina" text="Voltar" />
-      <Text fx:id="tfAlerta" fill="#f20d0d" layoutX="81.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Todos os campos são obrigatórios, preenche-los antes de cadastrar o filme." visible="false" />
+      <Text fx:id="tfAlerta" fill="#f20d0d" layoutX="81.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Todos os campos são obrigatórios, preenche-los antes de cadastrar a categoria." visible="false" />
    </children>
 </AnchorPane>

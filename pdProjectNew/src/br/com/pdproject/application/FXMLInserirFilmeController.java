@@ -105,6 +105,7 @@ public class FXMLInserirFilmeController extends AbstractController implements In
     
     
     public void voltarPagina() {
+        tfAlerta.setVisible(false);
         carregarPagina("FXMLFilmeMenu.fxml");
     }
     

@@ -47,6 +47,9 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
     private Button btnFiltrar;
     
     @FXML
+    private Button btnVoltarMenuInicial;
+    
+    @FXML
     private TableColumn<Filme, Integer> colIdFilme;
     
     @FXML
@@ -119,6 +122,9 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
          }
     }
     
-    
+    public void voltarMenuInicial(){
+        stagePrincipal.setTitle("Menu Principal");
+        carregarPagina("FXMLDocument.fxml");
+    }
     
 }
