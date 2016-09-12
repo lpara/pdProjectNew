@@ -43,7 +43,11 @@ public class FXMLAtualizarCategoriaController extends AbstractController impleme
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        categoria = (Categoria) stagePrincipal.getUserData();
+        
+        stagePrincipal.setUserData(null);
+        
+        tfNomeAttCategoria.setText(categoria.getNome());
     }
 
     public void atualizar() {
@@ -59,7 +63,7 @@ public class FXMLAtualizarCategoriaController extends AbstractController impleme
        
         listar();
         
-        carregarPagina("FXMLCategoriaMenu.fxml");
+        carregarPagina("FXMLMenuCategoria.fxml");
         
     } 
     

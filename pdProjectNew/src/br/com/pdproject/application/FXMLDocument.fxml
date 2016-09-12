@@ -14,9 +14,7 @@
         <Pane layoutX="11.0" layoutY="12.0" opacity="0.6" prefHeight="272.0" prefWidth="343.0" style="-fx-background-color: grey;">
             <children>
                 <Button fx:id="btnCRUDFilme" layoutX="127.0" layoutY="56.0" onAction="#redirecionarInserirFilmes" prefHeight="25.0" prefWidth="90.0" text="Filmes" />
-                <Button layoutX="126.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Atores" />
-                <Button layoutX="125.0" layoutY="204.0" mnemonicParsing="false" text="Listar Coleção" />
-                <Button layoutX="107.0" layoutY="240.0" mnemonicParsing="false" text="Filmes por Categoria" />
+                <Button fx:id="btnCRUDCategoria" layoutX="126.0" layoutY="93.0" mnemonicParsing="false" onAction="#redirecionarCategoria" prefHeight="25.0" prefWidth="90.0" text="Categoria" />
             <Text layoutX="136.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Locato">
                <font>
                   <Font size="24.0" />

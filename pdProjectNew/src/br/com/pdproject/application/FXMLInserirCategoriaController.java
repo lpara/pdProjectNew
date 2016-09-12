@@ -53,7 +53,7 @@ public class FXMLInserirCategoriaController extends AbstractController implement
         carregarPagina("FXMLSucessoCategoria.fxml");
     }
     public void voltarPagina() {
-        carregarPagina("FXMLCategoriaMenu.fxml");
+        carregarPagina("FXMLMenuCategoria.fxml");
     }
     
     /**

@@ -23,7 +23,7 @@
         </columns>
       </TableView>
       <Button fx:id="btnAtualizarCategoria" layoutX="20.0" layoutY="368.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="25.0" prefWidth="561.0" text="Atualizar Informação" />
-      <Button fx:id="btnRemoverCategoria" layoutX="19.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="561.0" text="Remover" />
+      <Button fx:id="btnRemoverCategoria" layoutX="19.0" layoutY="410.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="561.0" text="Remover" />
       <Text layoutX="35.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrar: ">
          <font>
             <Font size="18.0" />

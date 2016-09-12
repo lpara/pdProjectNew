@@ -31,10 +31,23 @@ public class FXMLDocumentController extends AbstractController implements Initia
     private Button btnCRUDFilme;
     
     @FXML
+    private Button btnCRUDCategoria;
+    
+    @FXML
     private void redirecionarInserirFilmes(ActionEvent event) {
          try {
              stagePrincipal.setTitle("Menu Filme");
             carregarPagina("FXMLFilmeMenu.fxml");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void redirecionarCategoria(ActionEvent event) {
+         try {
+             stagePrincipal.setTitle("Menu Categoria");
+            carregarPagina("FXMLMenuCategoria.fxml");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -28,8 +28,8 @@ public class FXMLSucessoCategoriaController extends AbstractController implement
         carregarPagina("FXMLInserirCategoria.fxml");
     }
     
-    public void carregarMenuFilme(){
-        carregarPagina("FXMLCategoriaMenu.fxml");
+    public void carregarMenuCategoria(){
+        carregarPagina("FXMLMenuCategoria.fxml");
     }
     
     /**

@@ -25,7 +25,7 @@ public class CategoriaDAO extends GenericDAO {
 	public List<Categoria> buscarCategorias(){
 		try{
 			EntityManager em = GenericDAO.getEntityManager().createEntityManager();
-			String consulta = "select c from Categoria c order by c.nome";
+			String consulta = "select c from Categoria c where c.emUso = true order by c.nome";
 			
 			Query q = em.createQuery(consulta);
 			List<Categoria> result = q.getResultList();
@@ -53,7 +53,7 @@ public class CategoriaDAO extends GenericDAO {
             EntityManager em = GenericDAO.getEntityManager().createEntityManager();
 
             String consulta = "from Categoria where emUso = true and (upper(nome) like '%" + filtro.toUpperCase() + "%' ) "+ 
-                    " order by titulo ";
+                    " order by nome ";
             List<Categoria> categorias =  em.createQuery(consulta).getResultList();
             return categorias;
        
@@ -90,9 +90,9 @@ public class CategoriaDAO extends GenericDAO {
             EntityManager em = GenericDAO.getEntityManager().createEntityManager();
             em.getTransaction().begin();
 
-            Query q = em.createQuery("UPDATE Categoria categoria SET categoria.nome = '" + categoria.getNome() +" where id = ? ");
+            Query q = em.createQuery("UPDATE Categoria categoria SET categoria.nome = '" + categoria.getNome() +"' where id = :idCategoria ");
 
-            q.setParameter(1, categoria.getId());
+            q.setParameter("idCategoria", categoria.getId());
 
             q.executeUpdate();
 

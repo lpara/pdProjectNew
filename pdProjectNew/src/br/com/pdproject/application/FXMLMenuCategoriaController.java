@@ -59,6 +59,8 @@ public class FXMLMenuCategoriaController extends AbstractController implements I
     public void initialize(URL url, ResourceBundle rb) {
         setColumn(colIdCategoria, "id");
         setColumn(colNomeCategoria, "nome");
+        tblCategoria.setItems(listaCategoria);
+        listar();
     }    
     
     public void listar(){
