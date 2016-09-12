@@ -79,11 +79,14 @@ public class FXMLMenuCategoriaController extends AbstractController implements I
     }
     
     public void remover() {
-        
-        CategoriaDAO categoriaDao = new CategoriaDAO();
-        Categoria c = tblCategoria.getSelectionModel().getSelectedItem();
-        categoriaDao.removerCategoria(c);
-        listar();
+        if (tblCategoria.getSelectionModel() == null || tblCategoria.getSelectionModel().getSelectedItem() == null) {
+            erroElementoNaoSelecionado();
+        } else{
+            CategoriaDAO categoriaDao = new CategoriaDAO();
+            Categoria c = tblCategoria.getSelectionModel().getSelectedItem();
+            categoriaDao.removerCategoria(c);
+            listar();
+        }
     }
     
     public void acaoInserir(ActionEvent event){
@@ -91,7 +94,11 @@ public class FXMLMenuCategoriaController extends AbstractController implements I
     }
     
     public void acaoAtualizar(ActionEvent event){
-        stagePrincipal.setUserData(tblCategoria.getSelectionModel().getSelectedItem());
-        carregarPagina("FXMLAtualizarCategoria.fxml");
+        if (tblCategoria.getSelectionModel() == null || tblCategoria.getSelectionModel().getSelectedItem() == null) {
+            erroElementoNaoSelecionado();
+        } else {
+            stagePrincipal.setUserData(tblCategoria.getSelectionModel().getSelectedItem());
+            carregarPagina("FXMLAtualizarCategoria.fxml");
+        }
     }
 }

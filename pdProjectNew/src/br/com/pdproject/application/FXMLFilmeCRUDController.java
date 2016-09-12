@@ -96,11 +96,14 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
     }
 
      public void remover() {
-        
-        FilmeDAO filmeDao = new FilmeDAO();
-        Filme f = tblFilme.getSelectionModel().getSelectedItem();
-        filmeDao.removerFilme(f);
-        listar();
+        if (tblFilme.getSelectionModel() == null || tblFilme.getSelectionModel().getSelectedItem() == null) {
+            erroElementoNaoSelecionado();
+        } else{
+            FilmeDAO filmeDao = new FilmeDAO();
+            Filme f = tblFilme.getSelectionModel().getSelectedItem();
+            filmeDao.removerFilme(f);
+            listar();
+        }
     }
     
     public void acaoInserir(ActionEvent event){
@@ -108,8 +111,12 @@ public class FXMLFilmeCRUDController extends AbstractController implements Initi
     }
     
      public void acaoAtualizar(ActionEvent event){
-        stagePrincipal.setUserData(tblFilme.getSelectionModel().getSelectedItem());
-        carregarPagina("FXMLAtualizarFilme.fxml");
+         if (tblFilme.getSelectionModel() == null || tblFilme.getSelectionModel().getSelectedItem() == null) {
+            erroElementoNaoSelecionado();
+        } else {
+            stagePrincipal.setUserData(tblFilme.getSelectionModel().getSelectedItem());
+            carregarPagina("FXMLAtualizarFilme.fxml");
+         }
     }
     
     

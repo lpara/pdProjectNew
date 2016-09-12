@@ -61,6 +61,7 @@ public class CategoriaDAO extends GenericDAO {
         
         public void inserirCategoria(Categoria categoria){
             EntityManager em = GenericDAO.getEntityManager().createEntityManager();
+            categoria.setEmUso(true);
             try{
                 em.getTransaction().begin();
                 em.persist(categoria);
