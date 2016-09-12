@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pdproject.application.FuncionarioAtualizaFXMLController">
+   <children>
+      <Text layoutX="12.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualiza Funcionario">
+         <font>
+            <Font name="Courier New" size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtNomeFuncionario" layoutX="139.0" layoutY="108.0" prefHeight="25.0" prefWidth="360.0" />
+      <TextField fx:id="txtSobrenomeFuncionario" layoutX="139.0" layoutY="142.0" prefHeight="25.0" prefWidth="360.0" />
+      <TextField fx:id="txtEmailFuncionario" layoutX="139.0" layoutY="175.0" prefHeight="25.0" prefWidth="360.0" />
+      <Button fx:id="btnAtualizarFuncionario" layoutX="387.0" layoutY="228.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="25.0" prefWidth="96.0" text="Atualizar" />
+      <Button fx:id="btnMenuFuncionario" layoutX="267.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToMenuFuncionario" prefHeight="25.0" prefWidth="96.0" text="Menu Funcionarios" />
+      <Button fx:id="btnMenuPrincipal" layoutX="146.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToMenuPrincipal" prefHeight="25.0" prefWidth="96.0" text="Menu Principal" />
+   </children>
+</AnchorPane>

@@ -26,8 +26,6 @@ public abstract class AbstractController extends PdProjectNew {
     public void carregarPagina(String pagina, Stage stage){
         try {
             Parent root = FXMLLoader.load(getClass().getResource(pagina));
-//            Stage stage = new Stage();
-            stage.setTitle("Ações de Filmes");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {

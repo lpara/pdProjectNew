@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pdproject.application.FuncionarioCadastroFXMLController">
+   <children>
+      <Text layoutX="127.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Novo Cliente">
+         <font>
+            <Font name="Courier New" size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtNomeFuncionario" layoutX="139.0" layoutY="91.0" prefHeight="25.0" prefWidth="360.0" />
+      <TextField fx:id="txtSobrenomeFuncionario" layoutX="139.0" layoutY="125.0" prefHeight="25.0" prefWidth="360.0" />
+      <TextField fx:id="txtEmailFuncionario" layoutX="139.0" layoutY="158.0" prefHeight="25.0" prefWidth="360.0" />
+      <Button fx:id="btnConfirmaCadastro" layoutX="392.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Cadastrar" />
+      <Button fx:id="btnMenuFuncionario" layoutX="272.0" layoutY="241.0" mnemonicParsing="false" onAction="#goToMenuFuncionario" prefHeight="25.0" prefWidth="96.0" text="Menu Clientes" />
+      <Button fx:id="btnMenuPrincipal" layoutX="151.0" layoutY="241.0" mnemonicParsing="false" onAction="#goToMenuPrincipal" prefHeight="25.0" prefWidth="96.0" text="Menu Principal" />
+      <TextField fx:id="txtLoginFuncionario" layoutX="139.0" layoutY="190.0" prefHeight="25.0" prefWidth="143.0" />
+      <Text layoutX="69.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="297.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtSenhaFuncionario" layoutX="356.0" layoutY="190.0" prefHeight="25.0" prefWidth="143.0" />
+   </children>
+</AnchorPane>

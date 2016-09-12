@@ -5,8 +5,8 @@
  */
 package br.com.pdproject.application;
 
-import com.br.pdproject.dao.ClienteDAO;
-import com.br.pdproject.dominio.Cliente;
+import com.br.pdproject.dao.EquipeDAO;
+import com.br.pdproject.dominio.Equipe;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -32,19 +32,19 @@ import javafx.scene.control.TextField;
 public class FuncionarioFXMLController extends AbstractController implements Initializable {
 
     @FXML
-    private Button btnInserirCliente;
+    private Button btnInserirFuncionario;
     
     @FXML
-    private Button btnRemoverCliente;
+    private Button btnRemoverFuncionario;
     
     @FXML
-    private Button btnListarCliente;
+    private Button btnListarFuncionario;
     
     @FXML
-    private Button btnAtualizarCliente;
+    private Button btnAtualizarFuncionario;
     
     @FXML
-    private Button btnPersisteCliente;
+    private Button btnPersisteFuncionario;
     
     @FXML
     private Button btnFiltrar;
@@ -56,57 +56,63 @@ public class FuncionarioFXMLController extends AbstractController implements Ini
     private Button btnConfirmaRemocao = new Button("Deseja Remover?");
     
     @FXML
-    private TableColumn<Cliente, Integer> colIdCliente;
+    private TableColumn<Equipe, Integer> colIdFuncionario;
     
     @FXML
-    private TableColumn<Cliente, String> colNomeCliente;
+    private TableColumn<Equipe, String> colNomeFuncionario;
     
     @FXML
-    private TableColumn<Cliente, String> colSobrenomeCliente;
+    private TableColumn<Equipe, String> colSobrenomeFuncionario;
 
     @FXML
-    private TableColumn<Cliente, String> colEmailCliente;
+    private TableColumn<Equipe, String> colEmailFuncionario;
     
     @FXML
-    private TableColumn<Cliente, Date> colDataCadastroCliente;
+    private TableColumn<Equipe, String> colLoginFuncionario;
 
     @FXML
-    private TableView<Cliente> tblCliente;
+    private TableView<Equipe> tblFuncionario;
     
     @FXML
-    private TextField txtNomeCliente;
+    private TextField txtNomeFuncionario;
     
     @FXML
-    private TextField txtSobrenomeCliente;
+    private TextField txtSobrenomeFuncionario;
     
     @FXML
-    private TextField txtEmailCliente;
+    private TextField txtEmailFuncionario;
     
     @FXML
-    private TextField txtfiltro;
+    private TextField txtLoginFuncionario;
     
-    private Cliente cliente;
+    @FXML
+    private TextField txtSenhaFuncionario;
     
-//    private Stage clienteStage;
+    @FXML
+    private TextField txtFiltro;
+    
+    private Equipe funcionario;
+    
+//    private Stage funcionarioStage;
 
-    public Cliente getCliente() {
-        return cliente;
+    public Equipe getFuncionario() {
+        return funcionario;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setFuncionario(Equipe funcionario) {
+        this.funcionario = funcionario;
     }
     
     @FXML
-    public void goToCadastroCliente(ActionEvent event) {
-        stagePrincipal.setTitle("Cadastro de Cliente");
-        carregarPagina("ClientesCadastroFXML.fxml");
+    public void goToCadastroFuncionario(ActionEvent event) {
+        stagePrincipal.setTitle("Cadastro de Funcionario");
+        carregarPagina("FuncionarioCadastroFXML.fxml");
     }
     
     @FXML
-    public void goToMenuCliente(ActionEvent event) {
-        stagePrincipal.setTitle("Cliente");
-        carregarPagina("ClienteFXML.fxml");
+    public void goToMenuFuncionario(ActionEvent event) {
+        stagePrincipal.setTitle("Funcionario");
+        carregarPagina("FuncionarioFXML.fxml");
     }
     
     @FXML
@@ -118,28 +124,28 @@ public class FuncionarioFXMLController extends AbstractController implements Ini
     
     
     @FXML
-    public void goToAtualizaCliente(ActionEvent event) throws IOException {
-       stagePrincipal.setUserData(tblCliente.getSelectionModel().getSelectedItem());
-       stagePrincipal.setTitle("Atualiza cliente");
-       carregarPagina("ClienteAtualizaFXML.fxml",stagePrincipal);
+    public void goToAtualizaFuncionario(ActionEvent event) throws IOException {
+       stagePrincipal.setUserData(tblFuncionario.getSelectionModel().getSelectedItem());
+       stagePrincipal.setTitle("Atualiza funcionario");
+       carregarPagina("FuncionarioAtualizaFXML.fxml",stagePrincipal);
     }
     
-    public ObservableList<Cliente> listaCliente = FXCollections.observableArrayList();
+    public ObservableList<Equipe> listaFuncionario = FXCollections.observableArrayList();
 
     private void listar() {
         
-       ClienteDAO cDAO = new ClienteDAO();
-       listaCliente.clear();
-       listaCliente.addAll(cDAO.Listar());
+       EquipeDAO eDAO = new EquipeDAO();
+       listaFuncionario.clear();
+       listaFuncionario.addAll(eDAO.Listar());
         
     }
     
     @FXML
-    public void filtrarCliente() {
+    public void filtrarFuncionario() {
         
-       ClienteDAO cDAO = new ClienteDAO();
-       listaCliente.clear();
-       listaCliente.addAll(cDAO.Filtrar(txtfiltro.getText()));
+       EquipeDAO eDAO = new EquipeDAO();
+       listaFuncionario.clear();
+       listaFuncionario.addAll(eDAO.Filtrar(txtFiltro.getText()));
         
     }
     
@@ -151,29 +157,30 @@ public class FuncionarioFXMLController extends AbstractController implements Ini
 
         configurarDialogo();
 
-        setColumn(colIdCliente, "id");
-        setColumn(colNomeCliente, "nome");
-        setColumn(colSobrenomeCliente, "sobrenome");
-        setColumn(colEmailCliente, "email");
-        setColumn(colDataCadastroCliente, "dataCadastro");
+        setColumn(colIdFuncionario, "id");
+        setColumn(colNomeFuncionario, "nome");
+        setColumn(colSobrenomeFuncionario, "sobrenome");
+        setColumn(colEmailFuncionario, "email");
+        setColumn(colLoginFuncionario, "login");
 
-        tblCliente.setItems(listaCliente);
+        tblFuncionario.setItems(listaFuncionario);
 
         listar();
     }
 
     public void salvar() {
         
-        ClienteDAO cDAO = new ClienteDAO();
-        cDAO.Salvar(txtNomeCliente.getText(), txtSobrenomeCliente.getText(), txtEmailCliente.getText());
+        EquipeDAO eDAO = new EquipeDAO();
+        eDAO.Salvar(txtNomeFuncionario.getText(), txtSobrenomeFuncionario.getText(), 
+                txtEmailFuncionario.getText(),txtSenhaFuncionario.getText(), txtSenhaFuncionario.getText());
         listar();
     }
     
     public void remover() {
         
-        ClienteDAO cDAO = new ClienteDAO();
-        Cliente c = tblCliente.getSelectionModel().getSelectedItem();
-        cDAO.Remover(c);
+        EquipeDAO eDAO = new EquipeDAO();
+        Equipe f = tblFuncionario.getSelectionModel().getSelectedItem();
+        eDAO.Remover(f);
         listar();
     }
     
@@ -184,11 +191,11 @@ public class FuncionarioFXMLController extends AbstractController implements Ini
             ButtonType btnSim = new ButtonType("Sim");
             ButtonType btnNao = new ButtonType("Não", ButtonBar.ButtonData.CANCEL_CLOSE);
             
-            Cliente c = tblCliente.getSelectionModel().getSelectedItem();
+            Equipe f = tblFuncionario.getSelectionModel().getSelectedItem();
             
             dialogoExe.setTitle("Confirmar Remoção");
             dialogoExe.setHeaderText("Deseja remover o registro selecionado?");
-            dialogoExe.setContentText("Deseja remover o cliente " + c.getNome() + " " + c.getSobrenome() + " ?");
+            dialogoExe.setContentText("Deseja remover o funcionario " + f.getNome() + " " + f.getSobrenome() + " ?");
             dialogoExe.getButtonTypes().setAll(btnSim, btnNao);
             dialogoExe.showAndWait().ifPresent(b -> {
                 if (b == btnSim) {

@@ -10,24 +10,24 @@
 
 <AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.pdproject.application.FuncionarioFXMLController">
    <children>
-      <Pane layoutX="193.0" layoutY="5.0" opacity="0.24" prefHeight="51.0" prefWidth="205.0" style="-fx-background-color: grey;" />
-      <TableView fx:id="tblCliente" layoutX="45.0" layoutY="60.0" prefHeight="181.0" prefWidth="513.0">
+      <Pane layoutX="174.0" layoutY="5.0" opacity="0.24" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: grey;" />
+      <TableView fx:id="tblFuncionario" layoutX="45.0" layoutY="60.0" prefHeight="181.0" prefWidth="513.0">
         <columns>
-            <TableColumn fx:id="colIdCliente" prefWidth="34.0" text="ID" />
-          <TableColumn fx:id="colNomeCliente" prefWidth="95.0" text="Nome" />
-            <TableColumn fx:id="colSobrenomeCliente" prefWidth="96.0" text="Sobrenome" />
-          <TableColumn fx:id="colEmailCliente" prefWidth="167.0" text="Email" />
-            <TableColumn fx:id="colDataCadastroCliente" minWidth="0.0" prefWidth="120.0" text="Data Cadastro" />
+            <TableColumn fx:id="colIdFuncionario" prefWidth="34.0" text="ID" />
+          <TableColumn fx:id="colNomeFuncionario" prefWidth="95.0" text="Nome" />
+            <TableColumn fx:id="colSobrenomeFuncionario" prefWidth="96.0" text="Sobrenome" />
+          <TableColumn fx:id="colEmailFuncionario" prefWidth="167.0" text="Email" />
+            <TableColumn fx:id="colLoginFuncionario" minWidth="0.0" prefWidth="120.0" text="Login" />
         </columns>
       </TableView>
-      <Text layoutX="253.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loja">
+      <Text layoutX="182.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionario">
          <font>
             <Font name="Kristen ITC" size="48.0" />
          </font>
       </Text>
       <Pane layoutX="6.0" layoutY="289.0" opacity="0.3" prefHeight="190.0" prefWidth="587.0" style="-fx-background-color: grey;" />
-      <Button fx:id="btnInserirFilme" layoutX="18.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToCadastroCliente" prefHeight="33.0" prefWidth="566.0" text="Inserir" />
-      <Button fx:id="btnAtualizarCliente" layoutX="18.0" layoutY="392.0" mnemonicParsing="false" onAction="#goToAtualizaCliente" prefHeight="33.0" prefWidth="566.0" text="Atualizar Informação" />
+      <Button fx:id="btnInserirFuncionario" layoutX="18.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToCadastroFuncionario" prefHeight="33.0" prefWidth="566.0" text="Inserir" />
+      <Button fx:id="btnAtualizarFuncionario" layoutX="18.0" layoutY="392.0" mnemonicParsing="false" onAction="#goToAtualizaFuncionario" prefHeight="33.0" prefWidth="566.0" text="Atualizar Informação" />
       <Button fx:id="btnMenuPrincipal" layoutX="18.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToMenuPrincipal" prefHeight="33.0" prefWidth="566.0" text="Menu Principal" />
       <Button fx:id="btnConfirmaRemocao" layoutX="18.0" layoutY="349.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="566.0" text="Remover" />
       <Text layoutX="34.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrar:">
@@ -35,7 +35,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtfiltro" layoutX="95.0" layoutY="253.0" prefHeight="25.0" prefWidth="400.0" />
-      <Button fx:id="btnFiltrar" layoutX="506.0" layoutY="253.0" mnemonicParsing="false" onAction="#filtrarCliente" text="buscar" />
+      <TextField fx:id="txtFiltro" layoutX="95.0" layoutY="253.0" prefHeight="25.0" prefWidth="400.0" />
+      <Button fx:id="btnFiltrar" layoutX="506.0" layoutY="253.0" mnemonicParsing="false" onAction="#filtrarFuncionario" text="buscar" />
    </children>
 </AnchorPane>

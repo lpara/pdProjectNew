@@ -7,6 +7,7 @@ package com.br.pdproject.dominio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,18 +31,18 @@ public class Equipe {
 	private int id;
 	
 	@Column(name="first_name")
-	private String primeiroNome;
+	private String nome;
 	
 	@Column(name="last_name")
-	private String ultimoNome;
+	private String sobrenome;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="address_id")
 	private Endereco endereco;
 	
 	private String email;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="store_id")
 	private Loja loja;
 	
@@ -62,21 +63,21 @@ public class Equipe {
 		this.id = id;
 	}
 
-	public String getPrimeiroNome() {
-		return primeiroNome;
-	}
+        public String getNome() {
+            return nome;
+        }
 
-	public void setPrimeiroNome(String primeiroNome) {
-		this.primeiroNome = primeiroNome;
-	}
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
 
-	public String getUltimoNome() {
-		return ultimoNome;
-	}
+        public String getSobrenome() {
+            return sobrenome;
+        }
 
-	public void setUltimoNome(String ultimoNome) {
-		this.ultimoNome = ultimoNome;
-	}
+        public void setSobrenome(String sobrenome) {
+            this.sobrenome = sobrenome;
+        }
 
 	public Endereco getEndereco() {
 		return endereco;
